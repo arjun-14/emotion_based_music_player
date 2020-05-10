@@ -35,6 +35,7 @@ dependencies:
   youtube_player_flutter: ^6.1.0+7
   modal_progress_hud: ^0.1.3
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +51,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - images/
 
 
   # To add assets to your application, add an assets section, like this:

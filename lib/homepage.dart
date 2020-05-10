@@ -137,37 +137,85 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
+        appBar: AppBar(title: Text('Home',style: TextStyle(
+          color:Color(0xFF63FFDA),
+        ),),),
         floatingActionButton: FloatingActionButton(
           onPressed: getImage,
           tooltip: 'Pick Image',
           child: Icon(Icons.add_a_photo),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.face),
-              title: Text('Emotion'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.music_note),
-              title: Text('Local Storage'),
-            )
-          ],
-        ),
+//        bottomNavigationBar: BottomNavigationBar(
+//          items: [
+//            BottomNavigationBarItem(
+//              icon: Icon(Icons.face),
+//              title: Text('Emotion'),
+//            ),
+//            BottomNavigationBarItem(
+//              icon: Icon(Icons.music_note),
+//              title: Text('Local Storage'),
+//            )
+//          ],
+//        ),
         body: //_futureEmotion == null ?
             ModalProgressHUD(
               child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-              Center(
-                child: _image == null
-                    ? Text('No image selected.')
-                    //: Image.file(_image),
-                    : FlatButton(
-                        child: Text('confirm'),
-                        onPressed: () => getData(),
-                      ),
+//            Expanded(flex: 1,
+//                child: Container(
+//                  child: Center(child: Text('How are you feeling today?',
+//                  style: TextStyle(
+//                    color: Color(0xFF63FFDA),
+//                    fontSize: 30,
+//                  ),)),
+//                )),
+              Expanded(
+                flex: 10,
+                child: Container(
+                  child: Center(
+                    child: _image == null
+                      ? Text('No image selected')
+//                        ? FittedBox(child: Image.asset('images/emotion.jpg')
+//                    ,fit: BoxFit.fill,)
+                        //: Image.file(_image),
+                        : Image.file(_image),
+//                    FlatButton(
+//                            child: Text('confirm'),
+//                            onPressed: () => getData(),
+//                          ),
+                  ),
+                ),
               ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                    width: 150,
+                    child: FlatButton(
+                    color: Color(0xFF63FFDA),
+                    textColor: Colors.black,
+                    disabledColor: Colors.grey,
+                    disabledTextColor: Colors.black,
+                    padding: EdgeInsets.all(3.0),
+                    splashColor: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                     // side: BorderSide(color: Colors.red)
+                    ),
+                    onPressed:_image == null ? null :
+                      (){
+                      getData();
+                      },
+                    child: Text(
+                      "Confirm",
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                ),
+                ),
+              ),
+            )
           ],
         ),
            inAsyncCall: isLoading, ),
