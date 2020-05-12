@@ -132,14 +132,30 @@ class _HomePageState extends State<HomePage> {
       ],
     ).show();
   }
-
+  _onBasicAlertPressed(context) {
+    Alert(
+        context: context,
+        title: "INFO",
+        desc: "The app can detect the following emotions: anger, contempt, disgust, fear, happiness, neutral, sadness, surprise")
+        .show();
+  }
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
         appBar: AppBar(title: Text('Home',style: TextStyle(
           color:Color(0xFF63FFDA),
-        ),),),
+        ),),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.info,color: Color(0xFF63FFDA),),
+            onPressed:(){setState(() {
+              _onBasicAlertPressed(context);
+            });
+            }
+          )
+        ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: getImage,
           tooltip: 'Pick Image',
