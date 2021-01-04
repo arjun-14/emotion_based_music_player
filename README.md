@@ -1,9 +1,20 @@
-This is a flutter application that can detect emotion and recommend a playlist as per the detected emotions.
-Microsoft's azure api is used to detect emotion and youtube api for recommending playlist to combat copyright restrictions.
+# Beyond the Melody
+Flutter application that can detect emotion and recommend a playlist as per the detected emotion.
 
-To run the app you would need an azure apikey as well as youtube api key.
-Create a file keys.dart under utilities in lib folder and add your respective api key as follows.
-final String kAzureApiKey = '';
-final String kYoutubeApiKey = '';
+![](working.gif)
 
-Working can be observed here- https://drive.google.com/file/d/197YUZPsIbWWt16GsmVL1z-XuR95gJgfG/view?usp=sharing
+
+
+## Install
+1. Obtain azure and youtube api keys and add them inside ```keys.dart``` under ```utilities``` in ```lib```.
+2. ```$ flutter run```
+
+## Emotions detected
+- happiness
+- sadness
+- neutral
+- anger
+- contempt
+- disgust
+- fear
+- surprise
